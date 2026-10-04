@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oberstufe Space</title>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fraunces:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#FFF8F0;--card:#fff;--side:#f6ebdd;--ink:#1f3a40;--mut:#5f7479;--line:#eadfd0;--pink:#E85A9B;--pl:#F7C6D9;--mint:#CDEEEA;--sea:#39C5D0;--deep:#168FA5;--peach:#F3A89B}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13262b;--card:#1b3239;--side:#102024;--ink:#f1f7f7;--mut:#a5babf;--line:#2b464d;--pl:#4a2a3d;--mint:#1d4a4d}}
+:root[data-theme="dark"]{--bg:#13262b;--card:#1b3239;--side:#102024;--ink:#f1f7f7;--mut:#a5babf;--line:#2b464d;--pl:#4a2a3d;--mint:#1d4a4d}
+*{box-sizing:border-box}html,body{margin:0}
+body{font:15px/1.5 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);display:grid;grid-template-columns:250px 1fr}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0}h2{font-size:26px}h3{font-size:18px}
+aside{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;overflow:auto;background:var(--side);padding:16px 14px}
+.logo{font:32px/1 Chewy,cursive;color:var(--pink);margin:4px 6px 16px;text-shadow:2px 2px 0 var(--pl)}
+aside button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;border-radius:12px;padding:11px 14px;margin-bottom:6px;background:transparent;color:var(--ink);font:500 15px Inter;cursor:pointer;white-space:nowrap}
+aside button::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--deep);opacity:.5}
+aside button.on{background:var(--card);box-shadow:0 1px 4px #0001}aside button.on::before{background:var(--pink);opacity:1}
+.band{height:30px;background:repeating-linear-gradient(135deg,var(--pl) 0 8px,var(--bg) 8px 16px)}
+main{padding:0 0 60px;min-width:0}.in{padding:22px 24px;max-width:1000px}
+section{display:none}section.on{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.card{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 2px 10px #0000000d;margin-bottom:16px}.grid .card{margin:0}
+.wide{grid-column:1/-1;background:var(--mint)}
+.ch{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.mut{color:var(--mut);font-size:13px}p{margin:6px 0}.quote{font:600 18px Fraunces,serif;color:var(--pink)}
+.it{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}.it:last-of-type{border:0}.it b{flex:1;font-weight:500}
+.dot{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block}
+.tag{font-size:12px;border-radius:99px;padding:3px 10px;background:var(--pl);color:var(--ink);display:inline-block;margin:2px}
+.tag.p{background:var(--pink);color:#fff}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}.row>*{flex:1 1 140px}.row .btn,.row .x{flex:none}
+label{font-size:12px;font-weight:600;color:var(--mut);display:block}
+input,select,textarea{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);min-width:0;width:100%}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--pink)}
+.btn{font:600 15px Inter;background:var(--pink);color:#fff;border:0;border-radius:12px;padding:11px 20px;cursor:pointer}.btn.g{background:var(--deep)}
+.chip{border:1.5px solid var(--line);background:transparent;border-radius:99px;padding:6px 14px;font:500 13px Inter;color:var(--ink);cursor:pointer;margin:6px 6px 0 0}.chip.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.x{background:none;border:0;color:var(--mut);cursor:pointer;font-size:18px;padding:0 4px}.x.s{font-size:14px}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
+.pb{height:10px;border-radius:9px;background:var(--line);margin:6px 0 10px;overflow:hidden}.pb i{display:block;height:100%;background:var(--pink)}
+.lv{display:flex;gap:16px;align-items:center}.lvn{font:600 36px Fraunces,serif;background:var(--pl);color:var(--ink);width:72px;height:72px;border-radius:16px;display:grid;place-items:center}
+.big{font:600 40px Fraunces,serif;color:var(--deep)}
+.avg{background:var(--pl);text-align:center}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.sc{border:1.5px solid var(--line);border-radius:14px;padding:12px}.sh{display:flex;align-items:center;gap:10px}.sh b{flex:1}
+.sw{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.swb{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}.swb.on{outline:2px solid var(--ink);outline-offset:1px}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px}td,th{border:1px solid var(--line);padding:3px;font-size:13px}th{background:var(--pl)}td input{border:0;background:transparent;text-align:center;padding:6px;border-radius:0}
+.bars{display:flex;gap:8px;height:110px;align-items:flex-end}.bars div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:12px;color:var(--mut)}.bars i{display:block;width:100%;background:var(--sea);border-radius:8px 8px 0 0;min-height:3px}
+.face{width:100%;min-height:140px;font:600 22px Fraunces,serif;background:var(--mint);color:var(--ink);border:0;border-radius:18px;cursor:pointer;padding:16px}
+svg text{font-family:Inter,sans-serif}
+@media(max-width:800px){body{display:block}aside{height:auto;display:flex;gap:4px;padding:10px;z-index:5}.logo{display:none}aside button{width:auto;margin:0}.in{padding:16px}}
+</style></head><body>
+<aside id="nav"></aside>
+<main><div class="band"></div><div class="in">
+
+<section id="start" class="on"><div class="grid" id="hg"></div></section>
+
+<section id="kalender"><h2>Kalender</h2><div class="card"><div class="row">
+<div style="flex:2"><label for="kt">Titel</label><input id="kt" placeholder="z. B. Mathe-Klausur"></div>
+<div><label for="kk">Art</label><select id="kk"><option>Klausur</option><option>Abgabe</option><option>Termin</option></select></div>
+<div><label for="ks">Fach</label><select id="ks"></select></div>
+<div><label for="kd">Datum</label><input id="kd" type="date"></div>
+<button class="btn" id="kadd">Eintragen</button></div></div><div class="card" id="tl"></div></section>
+
+<section id="aufgaben"><h2>Aufgaben</h2><div class="card"><div class="row">
+<div style="flex:2"><label for="at">Aufgabe</label><input id="at" placeholder="z. B. Bio-Referat vorbereiten"></div>
+<div><label for="as">Fach</label><select id="as"></select></div>
+<div><label for="au">Fällig am</label><input id="au" type="date"></div>
+<div><label for="ap">Priorität</label><select id="ap"><option value="0">hoch</option><option value="1" selected>mittel</option><option value="2">niedrig</option></select></div>
+<button class="btn" id="aadd">Eintragen</button></div></div><div class="card" id="al"></div></section>
+
+<section id="noten"><h2>Noten</h2><div class="card avg" id="gavg"></div><div id="gl"></div>
+<div class="grid"><div class="card"><h3>Notensystem</h3><div class="row"><select id="sy" aria-label="Notensystem"></select></div><p class="mut">Gilt für neue Einträge. Gespeicherte Noten bleiben unverändert, die Übersicht zeigt das gewählte System.</p></div>
+<div class="card"><h3>Note eintragen</h3><div class="row"><div><label for="gs">Fach</label><select id="gs"></select></div></div>
+<div class="row"><div><label for="gv" id="gvl">Wert</label><input id="gv" type="number" step="0.01"></div><div><label for="gw">Gewichtung</label><input id="gw" type="number" min="1" value="1"></div></div>
+<div class="row"><div><label for="gt">Typ</label><select id="gt"><option>Test</option><option>Klausur</option><option>Mündlich</option><option>Referat</option><option>Sonstiges</option></select></div><div><label for="gd">Schreibdatum</label><input id="gd" type="date"></div><div><label for="gr">Rückgabe</label><input id="gr" type="date"></div></div>
+<div class="row"><input id="gn" placeholder="Notiz zur Leistung (optional)"></div><p class="mut" id="gh"></p><button class="btn" id="gadd" style="width:100%">Eintragen</button></div></div></section>
+
+<section id="plan"><h2>Stundenplan</h2><div class="card"><button class="chip on" data-wk="A">Woche A</button><button class="chip" data-wk="B">Woche B</button><div class="tbl"><table id="pt"></table></div><datalist id="sl"></datalist></div></section>
+
+<section id="notizen"><h2>Lernzettel</h2><div class="card"><div class="row"><div><label for="ns">Fach</label><select id="ns"></select></div><div style="flex:2"><label for="nt">Titel</label><input id="nt" placeholder="z. B. Ableitungsregeln"></div></div>
+<div class="row"><textarea id="nx" rows="3" placeholder="Inhalt oder Link"></textarea></div><button class="btn" id="nadd">Lernzettel speichern</button><div id="nfl" style="margin-top:8px"></div></div><div class="card" id="nl"></div></section>
+
+<section id="lernzeit"><h2>Lernzeit</h2><div class="grid"><div class="card" style="text-align:center"><div class="row"><select id="pm" aria-label="Intervall"><option value="25">25 Min. Fokus, 5 Pause</option><option value="50">50 Min. Fokus, 10 Pause</option></select></div>
+<div class="big" id="ptm" style="font-size:72px">25:00</div><div class="mut" id="pph">Fokusphase</div><div class="row" style="justify-content:center"><button class="btn" id="pgo">Start</button><button class="btn g" id="prs">Zurücksetzen</button></div></div>
+<div class="card"><h3>Letzte 7 Tage</h3><p class="mut" id="fst"></p><div class="bars" id="bars"></div></div></div></section>
+
+<section id="karten"><h2>Lernkarten</h2><div class="card"><div class="row"><div><label for="cc">Fach</label><select id="cc"></select></div><div><label for="cf">Frage</label><input id="cf"></div><div><label for="cb">Antwort</label><input id="cb"></div><button class="btn" id="cadd">Karte speichern</button></div></div>
+<div class="card" style="text-align:center"><p class="mut" id="cmeta"></p><button class="face" id="cface"></button><div class="row" style="justify-content:center"><button class="btn" id="cno">Nochmal</button><button class="btn g" id="cyes">Gewusst</button></div></div></section>
+
+<section id="map"><h2>Study Map</h2><div class="card"><div class="row"><input id="mc" placeholder="Mittelpunkt, z. B. Abi 2028" aria-label="Mittelpunkt"><button class="btn g" id="mcs">Setzen</button></div>
+<div class="row"><input id="mb" placeholder="Thema, z. B. Analysis" aria-label="Thema"><button class="btn" id="mba">Thema hinzufügen</button></div>
+<div class="row"><select id="ms" aria-label="Thema wählen"></select><input id="mu" placeholder="Unterpunkt" aria-label="Unterpunkt"><button class="btn g" id="mua">Unterpunkt hinzufügen</button></div></div>
+<div class="card tbl"><svg id="svg" viewBox="0 0 800 560" style="width:100%;min-width:560px"></svg></div><div class="card" id="mlist"></div></section>
+
+<section id="settings"><h2>Settings</h2><div class="card"><h3>Du</h3><div class="row"><div><label for="nm">Name</label><input id="nm"></div><div><label for="fg">Tagesziel Fokuszeit (Min.)</label><input id="fg" type="number" min="10" step="5"></div></div>
+<div class="row"><div><label for="fn">Countdown, z. B. Sommerferien</label><input id="fn"></div><div><label for="fd">Countdown-Datum</label><input id="fd" type="date"></div></div></div>
+<div class="card"><h3>Fächer auswählen</h3><p class="mut">Aktiviere nur Fächer, die du wirklich nutzt. Sie erscheinen dann überall.</p><div class="sg" id="sg"></div>
+<div class="row"><input id="sn" placeholder="Eigenes Fach ergänzen" aria-label="Eigenes Fach"><button class="btn" id="sadd">Fach hinzufügen</button></div></div></section>
+
+</div></main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today=()=>new Date().toLocaleDateString('sv-SE'),tstr=d=>d.toLocaleDateString('sv-SE');
+const COL=['#39C5D0','#E85A9B','#168FA5','#F3A89B','#7C6BC4','#E0A93B','#4FA36B','#E2765B','#5B87C9','#C46BA7','#6B8A94','#9BC97A'];
+const DEF=['Biologie','Chemie','Deutsch','Englisch','Erdkunde','Ethik','Französisch','Geschichte','Informatik','Kunst','Latein','Mathematik','Musik','Physik','Politik','Religion','Spanisch','Sport','Wirtschaft'];
+let S={nm:'',sub:DEF.map((n,i)=>({id:i+1,n,c:COL[i%12],on:0})),ter:[],td:[],gr:[],sy:'DE-P',pl:{A:{},B:{}},swap:0,nt:[],cards:[],mp:{c:'Abi',b:[]},fo:{},xp:0,dy:[],dn:{},cd:{n:'',d:''},goal:60};
+try{const r=JSON.parse(localStorage.getItem('osp2'));if(r)Object.assign(S,r)}catch(e){}
+const save=()=>{try{localStorage.setItem('osp2',JSON.stringify(S))}catch(e){}};
+const sb=id=>S.sub.find(s=>s.id==id),AS=()=>S.sub.filter(s=>s.on);
+const dot=id=>`<span class="dot" style="background:${sb(id)?sb(id).c:'var(--mut)'}"></span>`,sn=id=>sb(id)?esc(sb(id).n):'Ohne Fach';
+const colOf=n=>{const s=S.sub.find(s=>s.n==n);return s?s.c:''};
+const sopt=none=>(none?'<option value="">Kein Fach</option>':'')+(AS().map(s=>`<option value="${s.id}">${esc(s.n)}</option>`).join('')||(none?'':'<option value="">Aktiviere Fächer in Settings</option>'));
+function fill(sel,h){const e=$(sel),v=e.value;e.innerHTML=h;if(v)e.value=v}
+const card=(t,b,x='')=>`<div class="card"><div class="ch"><h3>${t}</h3><span class="mut">${x}</span></div>${b}</div>`,no=t=>`<p class="mut">${t}</p>`;
+const dd=d=>new Date(d+'T00:00').toLocaleDateString('de-DE',{day:'numeric',month:'short'});
+const diff=d=>Math.round((new Date(d+'T00:00')-new Date(today()+'T00:00'))/864e5);
+const rel=n=>n<0?'vorbei':n==0?'heute':n==1?'morgen':'in '+n+' Tagen';
+const pb=p=>`<div class="pb"><i style="width:${Math.min(100,p)}%"></i></div>`;
+const Q=['Kleine Schritte zählen auch.','Heute lernen, morgen entspannen.','Du musst nicht perfekt sein, nur dranbleiben.','Pausen gehören zum Lernen dazu.','Fortschritt schlägt Perfektion.','Du schaffst mehr, als du gerade denkst.','Fang an, der Rest kommt von allein.','Atme durch und mach den nächsten Schritt.'];
+/* Punkte & Serie */
+function pts(x,k){S.xp+=x;const d=today();if(!S.dy.includes(d))S.dy.push(d);if(k){S.dn[d]=S.dn[d]||{t:0,k:0};S.dn[d][k]++}save()}
+function streak(){let n=0,d=new Date();if(!S.dy.includes(today()))d.setDate(d.getDate()-1);while(S.dy.includes(tstr(d))){n++;d.setDate(d.getDate()-1)}return n}
+function wnum(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())),n=t.getUTCDay()||7;t.setUTCDate(t.getUTCDate()+4-n);return Math.ceil(((t-Date.UTC(t.getUTCFullYear(),0,1))/864e5+1)/7)}
+const wk=d=>((wnum(d)+S.swap)%2?'A':'B');
+function dayPlan(d){const c=(d.getDay()+6)%7;if(c>4)return null;const w=wk(d),l=[];for(let r=1;r<=9;r++){const v=S.pl[w][c+'-'+r];if(v)l.push([r,v])}return l}
+const pl=l=>l.map(x=>`<div class="it"><span class="dot" style="background:${colOf(x[1])||'var(--mut)'}"></span><b>${esc(x[1])}</b><span class="mut">${x[0]}. Std.</span></div>`).join('');
+/* Navigation */
+const pages=[['start','Start'],['kalender','Kalender'],['aufgaben','Aufgaben'],['noten','Noten'],['plan','Stundenplan'],['notizen','Lernzettel'],['lernzeit','Lernzeit'],['karten','Lernkarten'],['map','Study Map'],['settings','Settings']];
+$('#nav').innerHTML='<div class="logo">Oberstufe Space</div>'+pages.map(p=>`<button data-p="${p[0]}" class="${p[0]=='start'?'on':''}">${p[1]}</button>`).join('');
+function go(id){$$('section').forEach(s=>s.classList.toggle('on',s.id==id));$$('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.p==id));R();if(id=='plan')pdr();if(id=='karten')cnext();scrollTo(0,0)}
+/* Start */
+function hdr(){const t=new Date(),dl=dayPlan(t),nx=new Date(t);do nx.setDate(nx.getDate()+1);while((nx.getDay()+6)%7>4);
+ const nl=dayPlan(nx),o=S.td.filter(x=>!x.d),du=o.filter(x=>x.u&&diff(x.u)<=1).sort((a,b)=>a.u.localeCompare(b.u));
+ const te=[...S.ter].sort((a,b)=>a.d.localeCompare(b.d)).filter(e=>diff(e.d)>=0),kl=te.find(e=>e.k=='Klausur'),tm=te.find(e=>e.k!='Klausur');
+ const lv=Math.floor(S.xp/100)+1,dn=S.dn[today()]||{t:0,k:0},mn=S.fo[today()]||0,g=S.goal||60,st=streak(),done=S.td.filter(x=>x.d).length;
+ const ev=e=>`<div class="it">${e.s?dot(e.s):''}<b>${esc(e.t)}</b><span class="mut">${dd(e.d)}, ${rel(diff(e.d))}</span></div>`;
+ const ch=(l,v,m)=>`<div class="mut">${l}: ${Math.min(v,m)} von ${m}</div>${pb(v/m*100)}`;
+ const cdt=S.cd.d?card(esc(S.cd.n||'Countdown'),`<div class="big">${diff(S.cd.d)>=0?diff(S.cd.d)+' Tage':'vorbei'}</div>`,dd(S.cd.d)):'';
+ $('#hg').innerHTML=`<div class="card wide"><h2>${t.toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})}</h2><p>${S.nm?'Willkommen zurück, '+esc(S.nm)+'.':'Willkommen zurück.'} Hier ist dein Überblick.</p><p class="quote">„${Q[Math.floor(Date.now()/864e5)%Q.length]}“</p></div>`+
+ card('Stundenplan heute',(dl===null?no('Heute ist Wochenende, kein Unterricht.'):dl.length?pl(dl):no('Kein Stundenplan eingetragen.'))+`<button class="chip" id="sw">Woche ${wk(t)}, A/B tauschen</button>`)+
+ card('Nächster Schultag',nl.length?pl(nl):no('Kein Stundenplan für diesen Tag eingetragen.'),dd(tstr(nx)))+
+ card('Fällig heute &amp; morgen',du.length?du.map(x=>`<div class="it">${dot(x.s)}<b>${esc(x.t)}</b><span class="mut">${rel(diff(x.u))}</span></div>`).join(''):no('Nichts Dringendes fällig.'))+
+ card('Nächste Klausur',kl?ev(kl):no('Keine Klausur in Sicht.'))+card('Nächster Termin',tm?ev(tm):no('Kein Termin eingetragen.'))+
+ card('Fortschritt',`<p>${done} von ${S.td.length} Aufgaben erledigt</p>${pb(S.td.length?done/S.td.length*100:0)}`)+
+ card('Dein Lernlevel',`<div class="lv"><div class="lvn">${lv}</div><div><b>${S.xp} Punkte</b><div class="mut">${100-S.xp%100} Punkte bis zum nächsten Level</div><div class="mut">Lernserie: ${st} ${st==1?'Tag':'Tage'}</div></div></div>`)+
+ card('Mini-Lernchallenge',ch('Fokuszeit in Min.',mn,g)+ch('Aufgaben erledigt',dn.t,3)+ch('Karten gewusst',dn.k,5),'heute')+cdt}
+/* Kalender */
+function tdr(){S.ter.sort((a,b)=>a.d.localeCompare(b.d));$('#tl').innerHTML=S.ter.length?S.ter.map((e,i)=>`<div class="it"><span class="tag ${e.k=='Klausur'?'p':''}">${e.k}</span>${e.s?dot(e.s):''}<b>${esc(e.t)}</b><span class="mut">${dd(e.d)}, ${rel(diff(e.d))}</span><button class="x" data-dte="${i}" aria-label="Löschen">×</button></div>`).join(''):no('Noch keine Termine. Trag oben deine erste Klausur ein.')}
+$('#kadd').onclick=()=>{const t=$('#kt').value.trim(),d=$('#kd').value;if(!t||!d)return;S.ter.push({t,d,k:$('#kk').value,s:$('#ks').value});$('#kt').value='';save();R()};
+/* Aufgaben */
+function adr(){const o=S.td.filter(t=>!t.d).sort((a,b)=>a.p-b.p||(a.u||'9').localeCompare(b.u||'9')),row=t=>`<div class="it"><input type="checkbox" data-td="${t.id}" ${t.d?'checked':''} aria-label="erledigt">${dot(t.s)}<b style="${t.d?'text-decoration:line-through;color:var(--mut)':''}">${esc(t.t)}</b>${t.u?`<span class="mut">${dd(t.u)}</span>`:''}<span class="tag ${t.p==0?'p':''}">${['hoch','mittel','niedrig'][t.p]}</span><button class="x" data-dt="${t.id}" aria-label="Löschen">×</button></div>`;
+ $('#al').innerHTML=(o.length?o.map(row).join(''):no('Alles erledigt. Gönn dir eine Pause!'))+S.td.filter(t=>t.d).map(row).join('')}
+$('#aadd').onclick=()=>{const t=$('#at').value.trim();if(!t)return;S.td.push({id:Date.now(),t,s:$('#as').value,u:$('#au').value,p:+$('#ap').value,d:0});$('#at').value='';save();R()};
+/* Noten */
+const SY={'DE-P':['Deutschland Oberstufe: Punkte 0–15',0,15],'DE-N':['Deutschland: Noten 1–6',1,6],'AT-N':['Österreich: Noten 1–5',1,5],'AT-P':['Österreich: Prozent 0–100',0,100],'CH-N':['Schweiz: Noten 1–6 (6 ist die beste)',1,6],'CH-P':['Schweiz: Prozent 0–100',0,100]};
+$('#sy').innerHTML=Object.entries(SY).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join('');$('#sy').value=S.sy;
+$('#sy').onchange=e=>{S.sy=e.target.value;save();R()};
+function gdr(){const y=SY[S.sy],by={},f=v=>v.toFixed(2).replace('.',',');S.gr.filter(x=>x.y==S.sy).forEach(x=>(by[x.s]=by[x.s]||[]).push(x));
+ const av=a=>a.reduce((s,x)=>s+x.v*x.w,0)/a.reduce((s,x)=>s+x.w,0),ids=Object.keys(by),m=ids.map(i=>av(by[i]));
+ $('#gvl').textContent=y[0].includes('Prozent')?'Prozent':y[0].includes('Punkte')?'Punkte ('+y[1]+'–'+y[2]+')':'Note ('+y[1]+'–'+y[2]+')';
+ $('#gavg').innerHTML=`<div class="big">${m.length?f(m.reduce((a,b)=>a+b)/m.length):'–'}</div><div>Gesamtschnitt über ${ids.length} Fächer (${y[0]})</div>`;
+ $('#gl').innerHTML=ids.length?ids.map(i=>`<div class="card"><div class="ch"><h3>${dot(i)} ${sn(i)}</h3><b>Ø ${f(av(by[i]))}</b></div>${by[i].map(x=>`<span class="tag" title="${esc(x.n||'')}">${f(x.v).replace(/,00$/,'')}${x.w>1?' ×'+x.w:''}, ${x.t}${x.sd?', '+dd(x.sd):''} <button class="x s" data-dg="${x.id}" aria-label="Löschen">×</button></span>`).join('')}</div>`).join(''):`<div class="card">${no('Noch keine Noten für dieses System.')}</div>`}
+$('#gadd').onclick=()=>{const y=SY[S.sy],v=parseFloat($('#gv').value),s=$('#gs').value;
+ if(!s||isNaN(v)||v<y[1]||v>y[2]){$('#gh').textContent=`Wähle ein Fach und gib einen Wert von ${y[1]} bis ${y[2]} ein.`;return}$('#gh').textContent='';
+ S.gr.push({id:Date.now(),s,v,w:Math.max(1,+$('#gw').value||1),t:$('#gt').value,sd:$('#gd').value,rd:$('#gr').value,n:$('#gn').value,y:S.sy});$('#gv').value=$('#gn').value='';save();R()};
+/* Stundenplan */
+let W='A';
+function pdr(){const D=['Mo','Di','Mi','Do','Fr'];let h='<tr><th></th>'+D.map(d=>`<th>${d}</th>`).join('')+'</tr>';
+ for(let r=1;r<=9;r++)h+=`<tr><th>${r}.</th>`+D.map((d,c)=>{const v=S.pl[W][c+'-'+r]||'';return `<td><input list="sl" data-k="${c}-${r}" value="${esc(v)}" style="background:${colOf(v)?colOf(v)+'44':''}" aria-label="${d} ${r}. Stunde"></td>`}).join('')+'</tr>';$('#pt').innerHTML=h}
+$('#pt').oninput=e=>{const k=e.target.dataset.k;if(k){S.pl[W][k]=e.target.value;e.target.style.background=colOf(e.target.value)?colOf(e.target.value)+'44':'';save()}};
+/* Lernzettel */
+let nf='';
+function ndr(){$('#nfl').innerHTML=`<button class="chip ${nf?'':'on'}" data-nf="">Alle</button>`+AS().map(s=>`<button class="chip ${nf==s.id?'on':''}" data-nf="${s.id}">${esc(s.n)}</button>`).join('');
+ const l=S.nt.filter(n=>!nf||n.s==nf).slice().reverse();$('#nl').innerHTML=l.length?l.map(n=>`<div class="it"><input type="checkbox" data-nz="${n.id}" ${n.d?'checked':''} aria-label="gelernt">${dot(n.s)}<b style="${n.d?'text-decoration:line-through;color:var(--mut)':''}">${esc(n.t)}<div class="mut" style="white-space:pre-wrap;font-weight:400">${esc(n.x)}</div></b><button class="x" data-dnz="${n.id}" aria-label="Löschen">×</button></div>`).join(''):no('Noch keine Lernzettel. Leg oben deinen ersten an.')}
+$('#nadd').onclick=()=>{const t=$('#nt').value.trim();if(!t)return;S.nt.push({id:Date.now(),s:$('#ns').value,t,x:$('#nx').value,d:0});$('#nt').value=$('#nx').value='';save();R()};
+/* Lernzeit */
+let pT=null,pE=0,pL=1500,pB=false;
+const pf=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function pset(){const f=+$('#pm').value;pL=(pB?f/5:f)*60;$('#ptm').textContent=pf(pL);$('#pph').textContent=pB?'Pause':'Fokusphase'}
+function fdr(){const g=S.goal||60;$('#fst').textContent=`Heute ${S.fo[today()]||0} von ${g} Minuten. Jede Fokusphase bringt 25 Punkte.`;let b='';for(let i=6;i>=0;i--){const e=new Date();e.setDate(e.getDate()-i);b+=`<div><i style="height:${Math.min(95,(S.fo[tstr(e)]||0)/g*95)}%"></i>${['So','Mo','Di','Mi','Do','Fr','Sa'][e.getDay()]}</div>`}$('#bars').innerHTML=b}
+function ptick(){const l=Math.max(0,Math.round((pE-Date.now())/1000));$('#ptm').textContent=pf(l);document.title=pf(l)+' Oberstufe Space';
+ if(l<=0){clearInterval(pT);pT=null;$('#pgo').textContent='Start';document.title='Oberstufe Space';if(!pB){S.fo[today()]=(S.fo[today()]||0)+(+$('#pm').value);pts(25)}pB=!pB;pset();R()}}
+$('#pgo').onclick=()=>{if(pT){clearInterval(pT);pT=null;pL=Math.round((pE-Date.now())/1000);$('#pgo').textContent='Weiter';return}pE=Date.now()+pL*1000;pT=setInterval(ptick,500);$('#pgo').textContent='Pause'};
+$('#prs').onclick=()=>{clearInterval(pT);pT=null;pB=false;pset();$('#pgo').textContent='Start';document.title='Oberstufe Space'};
+$('#pm').onchange=()=>{if(!pT)pset()};
+/* Lernkarten */
+let ci=null,cfl=false;
+function cnext(){const l=S.cards.filter(c=>c.k==$('#cc').value);if(!l.length){ci=null;$('#cface').textContent='Noch keine Karten für dieses Fach.';$('#cmeta').textContent='';return}
+ l.sort((a,b)=>a.b-b.b||Math.random()-.5);ci=l[0];cfl=false;$('#cface').textContent=ci.f;$('#cmeta').textContent=`${l.filter(c=>c.b>=2).length} von ${l.length} sicher. Tippe die Karte zum Umdrehen.`}
+$('#cface').onclick=()=>{if(ci){cfl=!cfl;$('#cface').textContent=cfl?ci.a:ci.f}};
+$('#cyes').onclick=()=>{if(ci){ci.b++;pts(2,'k');cnext();R()}};$('#cno').onclick=()=>{if(ci){ci.b=0;save();cnext()}};$('#cc').onchange=cnext;
+$('#cadd').onclick=()=>{const f=$('#cf').value.trim(),a=$('#cb').value.trim();if(!f||!a||!$('#cc').value)return;S.cards.push({k:$('#cc').value,f,a,b:0});$('#cf').value=$('#cb').value='';save();cnext()};
+/* Study Map */
+function mdr(){const m=S.mp,cx=400,cy=280,n=m.b.length;let s='';
+ m.b.forEach((b,i)=>{const a=i/n*Math.PI*2-Math.PI/2,x=cx+Math.cos(a)*190,y=cy+Math.sin(a)*170;s+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E85A9B" stroke-width="3"/>`;
+  b.s.forEach((u,j)=>{const o=a+(j-(b.s.length-1)/2)*.38,ux=x+Math.cos(o)*120,uy=y+Math.sin(o)*100;s+=`<line x1="${x}" y1="${y}" x2="${ux}" y2="${uy}" stroke="#39C5D0" stroke-width="2"/><rect x="${ux-50}" y="${uy-13}" width="100" height="26" rx="13" fill="#CDEEEA" stroke="#39C5D0"/><text x="${ux}" y="${uy+4}" text-anchor="middle" font-size="11" fill="#1f3a40">${esc(u.slice(0,16))}</text>`});
+  s+=`<rect x="${x-58}" y="${y-18}" width="116" height="36" rx="18" fill="#E85A9B"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="13" fill="#fff">${esc(b.t.slice(0,15))}</text>`});
+ s+=`<ellipse cx="${cx}" cy="${cy}" rx="70" ry="36" fill="#168FA5"/><text x="${cx}" y="${cy+6}" text-anchor="middle" font-size="16" fill="#fff" font-weight="600">${esc(m.c.slice(0,14))}</text>`;$('#svg').innerHTML=s;
+ fill('#ms',m.b.map((b,i)=>`<option value="${i}">${esc(b.t)}</option>`).join(''));
+ $('#mlist').innerHTML=m.b.map((b,i)=>`<div class="it"><b>${esc(b.t)}</b><span class="mut">${b.s.map((u,j)=>esc(u)+` <button class="x s" data-us="${i}-${j}" aria-label="Unterpunkt löschen">×</button>`).join(', ')}</span><button class="x" data-ds="${i}" aria-label="Thema löschen">×</button></div>`).join('')||no('Füge ein Thema hinzu, dann wächst deine Map.')}
+$('#mcs').onclick=()=>{if($('#mc').value.trim()){S.mp.c=$('#mc').value.trim();save();R()}};
+$('#mba').onclick=()=>{const t=$('#mb').value.trim();if(!t)return;S.mp.b.push({t,s:[]});$('#mb').value='';save();R()};
+$('#mua').onclick=()=>{const t=$('#mu').value.trim(),i=$('#ms').value;if(!t||i==='')return;S.mp.b[i].s.push(t);$('#mu').value='';save();R()};
+/* Settings */
+function sdr(){$('#sg').innerHTML=S.sub.map(s=>`<div class="sc"><div class="sh"><input type="checkbox" data-so="${s.id}" ${s.on?'checked':''} aria-label="${esc(s.n)} aktivieren"><span class="dot" style="background:${s.c}"></span><b>${esc(s.n)}</b>${s.id>100?`<button class="x" data-sx="${s.id}" aria-label="Fach löschen">×</button>`:''}</div><div class="sw">${COL.map(c=>`<button class="swb ${c==s.c?'on':''}" style="background:${c}" data-sc="${s.id}|${c}" aria-label="Farbe wählen"></button>`).join('')}</div></div>`).join('')}
+$('#sadd').onclick=()=>{const n=$('#sn').value.trim();if(!n)return;S.sub.push({id:Date.now(),n,c:COL[S.sub.length%12],on:1});$('#sn').value='';save();R()};
+$('#nm').value=S.nm;$('#fg').value=S.goal;$('#fn').value=S.cd.n;$('#fd').value=S.cd.d;
+$('#nm').oninput=e=>{S.nm=e.target.value;save()};$('#fg').oninput=e=>{S.goal=+e.target.value||60;save()};
+$('#fn').oninput=e=>{S.cd.n=e.target.value;save()};$('#fd').oninput=e=>{S.cd.d=e.target.value;save()};
+/* Alles neu zeichnen */
+function R(){['#ks','#as','#gs','#ns','#cc'].forEach(s=>fill(s,sopt(s=='#ks'||s=='#as')));$('#sl').innerHTML=AS().map(s=>`<option value="${esc(s.n)}">`).join('');
+ hdr();tdr();adr();gdr();ndr();fdr();mdr();sdr()}
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const d=t.dataset,q=k=>d[k]!==undefined;
+ if(q('p'))return go(d.p);
+ if(q('wk')){W=d.wk;$$('[data-wk]').forEach(b=>b.classList.toggle('on',b==t));return pdr()}
+ if(t.id=='sw')S.swap=1-S.swap;
+ else if(q('dte'))S.ter.splice(d.dte,1);
+ else if(q('dt'))S.td=S.td.filter(x=>x.id!=d.dt);
+ else if(q('dg'))S.gr=S.gr.filter(x=>x.id!=d.dg);
+ else if(q('dnz'))S.nt=S.nt.filter(x=>x.id!=d.dnz);
+ else if(q('nf'))nf=d.nf;
+ else if(q('sx'))S.sub=S.sub.filter(x=>x.id!=d.sx);
+ else if(q('sc')){const[i,c]=d.sc.split('|');sb(i).c=c}
+ else if(q('ds'))S.mp.b.splice(d.ds,1);
+ else if(q('us')){const[i,j]=d.us.split('-');S.mp.b[i].s.splice(j,1)}
+ else return;save();R()});
+document.addEventListener('change',e=>{const d=e.target.dataset;
+ if(d.td){const t=S.td.find(x=>x.id==d.td);t.d=e.target.checked?1:0;if(t.d)pts(10,'t')}
+ else if(d.nz){const n=S.nt.find(x=>x.id==d.nz);n.d=e.target.checked?1:0;if(n.d)pts(15)}
+ else if(d.so)sb(d.so).on=e.target.checked?1:0;
+ else return;save();R()});
+go('start');
+</script></body></html>
